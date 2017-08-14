@@ -9,10 +9,13 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private String name;
+    private String birthDate;
+    private String phoneNum;
     private boolean isAccountNonExpired;
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;
-    private boolean isEnabled; private Collection<? extends GrantedAuthority> authorities;
+    private boolean isEnabled;
+    private Collection<? extends GrantedAuthority> authorities;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -51,6 +54,22 @@ public class User implements UserDetails {
 
     public String getName() { return name; }
 
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
     public void setName(String name) { this.name = name; }
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
@@ -60,4 +79,19 @@ public class User implements UserDetails {
     public void setEnabled(boolean isEnabled) { this.isEnabled = isEnabled; }
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) { this.authorities = authorities; }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", isAccountNonExpired=" + isAccountNonExpired +
+                ", isAccountNonLocked=" + isAccountNonLocked +
+                ", isCredentialsNonExpired=" + isCredentialsNonExpired +
+                ", isEnabled=" + isEnabled +
+                ", authorities=" + authorities +
+                '}';
+    }
 }

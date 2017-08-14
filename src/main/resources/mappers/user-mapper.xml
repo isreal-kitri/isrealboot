@@ -11,4 +11,20 @@
         SELECT authority_name FROM authority WHERE username = #{username}
     </select>
 
+    <insert id="createUser" parameterType="kr.re.kitri.isrealboot.model.User">
+        INSERT INTO user (username, password, name, isAccountNonExpired, isAccountNonLocked, isCredentialsNonExpired, isEnabled)
+        VALUES (#{username}, #{password}, #{name}, #{isAccountNonExpired}, #{isAccountNonLocked}, #{isCredentialsNonExpired}, #{isEnabled})
+    </insert>
+
+    <insert id="createAuthority" parameterType="kr.re.kitri.isrealboot.model.Auth">
+        INSERT INTO authority (username, authority_name) VALUES (#{username}, #{authname});
+    </insert>
+
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM user WHERE username = #{username}
+    </delete>
+
+    <delete id="deleteAuthority" parameterType="String">
+        DELETE FROM authority WHERE username = #{username}
+    </delete>
 </mapper>

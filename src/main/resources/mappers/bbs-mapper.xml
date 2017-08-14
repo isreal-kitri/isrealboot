@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.announce">
+    <select id="selectAnnounces" resultType="kr.re.kitri.isrealboot.model.AnnouncePost">
+        SELECT post_seq, title, writer, hps, recommend_num, DATE_FORMAT(post_date, '%Y-%m-%d') AS 'date_formatted'
+        FROM announce_post;
+    </select>
+</mapper>

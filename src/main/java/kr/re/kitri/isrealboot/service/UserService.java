@@ -1,9 +1,12 @@
 package kr.re.kitri.isrealboot.service;
 
+import kr.re.kitri.isrealboot.model.AnnouncePost;
+import kr.re.kitri.isrealboot.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * 권한 받아오는 method
@@ -12,4 +15,10 @@ import java.util.Collection;
  */
 public interface UserService extends UserDetailsService {
     Collection<GrantedAuthority> getAuthorities(String username);
+
+    public User readUser(String username);
+    public void createUser(User user);
+    public void deleteUser(String username);
+
+    public List<AnnouncePost> getAnnounces();
 }

@@ -1,9 +1,11 @@
 package kr.re.kitri.isrealboot.dao;
 
+import kr.re.kitri.isrealboot.model.Auth;
 import kr.re.kitri.isrealboot.model.User;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,4 +29,22 @@ public class IsrealDao {
     public List<String> readAuthority(String username) {
         return sqlSession.selectList("mappers.UserMapper.readAuthority", username);
     }
+
+
+    public void createUser(User user) {
+        sqlSession.insert("mappers.UserMapper.createUser", user);
+    }
+
+    public void createAuthority(Auth userauth) {
+        sqlSession.insert("mappers.UserMapper.createAuthority", userauth);
+    }
+
+    public void deleteUser(String username) {
+        sqlSession.delete("mappers.UserMapper.deleteUser", username);
+    }
+
+    public void deleteAuthority(String username) {
+        sqlSession.delete("mappers.UserMapper.deleteAuthority", username);
+    }
+
 }
